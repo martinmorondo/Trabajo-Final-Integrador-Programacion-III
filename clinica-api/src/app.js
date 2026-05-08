@@ -1,12 +1,15 @@
-const express = require('express');
-const cors = require('cors');
-const morgan = require('morgan');
+import express from 'express';
+import cors from 'cors';
+import morgan from 'morgan';
 
 // Inicializamos la aplicación
 const app = express();
 
 // Importamos la conexión a la base de datos para que se ejecute
-require('./config/db');
+import './config/db.js';
+
+// Importamos las rutas
+import especialidadRoutes from './routes/especialidadRoutes.js';
 
 // Middlewares 
 app.use(cors()); // Habilita conexiones cruzadas 
@@ -18,4 +21,8 @@ app.get('/api', (req, res) => {
     res.json({ mensaje: 'API de la Clínica Médica en funcionamiento' });
 });
 
-module.exports = app;
+// Usamos las rutas de especialidades
+// Todo lo que vaya a /api/especialidades será manejado por especialidadRoutes
+app.use('/api/especialidades', especialidadRoutes);
+
+export default app;
