@@ -1,7 +1,7 @@
 // Importamos dotenv para cargar las variables de entorno antes de que la app inicie
-require('dotenv').config();
+import 'dotenv/config';
 
-const app = require('./app');
+import app from './app.js';
 
 // Obtenemos el puerto de las variables de entorno o usamos el 3000 por defecto
 const PORT = process.env.PORT || 3000;
