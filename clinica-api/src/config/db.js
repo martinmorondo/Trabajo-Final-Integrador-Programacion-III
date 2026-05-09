@@ -1,5 +1,5 @@
-const mysql = require('mysql2/promise'); // Usamos la versión con promesas 
-require('dotenv').config();
+import mysql from 'mysql2/promise';
+import 'dotenv/config';
 
 // Creamos un "Pool" de conexiones. 
 // Esto es más eficiente que abrir y cerrar la conexión en cada petición.
@@ -23,4 +23,4 @@ pool.getConnection()
         console.error('Error al conectar a la base de datos:', error.message);
     });
 
-module.exports = pool;
+export default pool;
