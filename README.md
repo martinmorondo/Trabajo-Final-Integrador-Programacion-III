@@ -18,33 +18,47 @@ Este proyecto consiste en el desarrollo del lado del servidor (**Backend**) para
 
 # 🛠️ Stack Tecnológico
 
+Este proyecto se utiliza las siguientes tecnologías y herramientas para su funcionamiento:
+
+
 ### Backend
 
-
+* **Node.js** (configurado con ES Modules)
+* **Express**
 
 ### Base de Datos
 
+* **MySQL**
 
+  * Promesas
+  * Transacciones
+  * Stored Procedures
 
 ### Seguridad
 
+* **JWT (JSON Web Tokens)** para la autenticación y autorización basada en roles:
 
+  * Admin
+  * Médico
+  * Paciente
 
 ### Documentación
 
-
+* **Swagger (OpenAPI 3.0)**
 
 ### Gestión de Archivos
 
-
+* **Multer** (`multipart/form-data`)
 
 ### Generación de Reportes
 
-
+* **PDFKit**
 
 ### Middlewares
 
-
+* `cors`
+* `morgan`
+* `express-validator`
 
 ---
 
@@ -97,15 +111,32 @@ Este proyecto consiste en el desarrollo del lado del servidor (**Backend**) para
 
 ## 1. Clonar el repositorio
 
-
+```bash
+git clone <URL_DEL_REPOSITORIO>
+cd clinica-api
+```
 
 ## 2. Instalar dependencias
 
+```bash
+npm install
+```
 
+---
 
 ## 3. Configurar la Base de Datos
 
+Abrí tu gestor MySQL (ejemplo: **MySQL Workbench**).
 
+Pasos:
+
+1. Ir a **Server → Data Import**
+2. Seleccionar **Import from Dump Project Folder**
+3. Elegir la carpeta:
+
+```plaintext
+Base_de_Datos/
+```
 
 4. Ejecutar la importación.
 
@@ -119,11 +150,28 @@ Esto configurará:
 
 ## 4. Configurar variables de entorno
 
+Crear un archivo `.env` en la raíz del proyecto.
+
+```env
+PORT=3000
+
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=tu_contraseña_de_mysql
+DB_NAME=clinica_db
+
+JWT_SECRET=una_clave_super_secreta_para_clinica
+```
 
 ---
 
 ## 5. Levantar el servidor
 
+Modo desarrollo:
+
+```bash
+npm run dev
+```
 
 ---
 
@@ -159,4 +207,4 @@ POST /api/v1/auth/login
 
 # 📄 Licencia
 
-Proyecto desarrollado con fines académicos.
+Proyecto desarrollado únicamente con fines académicos.
