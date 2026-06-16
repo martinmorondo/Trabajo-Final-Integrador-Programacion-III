@@ -10,32 +10,33 @@ router.post('/register', validacionRegistro, register);
 /**
  * @swagger
  * /api/v1/auth/login:
- * post:
- * summary: Inicia sesión en el sistema
- * tags: [Autenticación]
- * requestBody:
- * required: true
- * content:
- * application/json:
- * schema:
- * type: object
- * required:
- * - email
- * - password
- * properties:
- * email:
- * type: string
- * format: email
- * example: admin@clinica.com
- * password:
- * type: string
- * format: password
- * example: mi_password_super_seguro
- * responses:
- * 200:
- * description: Inicio de sesión exitoso. Devuelve el token JWT.
- * 401:
- * description: Credenciales inválidas.
+ *   post:
+ *     summary: Inicia sesión en el sistema
+ *     tags:
+ *       - Autenticación
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - email
+ *               - password
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 format: email
+ *                 example: admin@clinica.com
+ *               password:
+ *                 type: string
+ *                 format: password
+ *                 example: mi_password_super_seguro
+ *     responses:
+ *       200:
+ *         description: Inicio de sesión exitoso. Devuelve el token JWT.
+ *       401:
+ *         description: Credenciales inválidas.
  */
 
 // LOGIN - Iniciar sesión y obtener el Token JWT
