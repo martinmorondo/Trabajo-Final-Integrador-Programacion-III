@@ -8,6 +8,6 @@ const PORT = process.env.PORT || 3000;
 
 // Levantamos el servidor
 app.listen(PORT, () => {
-    console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
+    console.log(`Servidor corriendo en http://localhost:${PORT}`);
     console.log(`Accede a http://localhost:${PORT}/api para probar la conexión.`);
 });

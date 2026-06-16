@@ -1,0 +1,1 @@
+INSERT INTO clinica_db.especialidades (nombre) VALUES ('Cardiología');
