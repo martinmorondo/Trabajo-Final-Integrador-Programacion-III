@@ -20,6 +20,13 @@ const Turno = {
         return rows;
     },
 
+    // Método para el Reporte PDF (Cumpliendo la regla de negocio)
+    getParaReporte: async () => {
+        const [rows] = await pool.query('CALL sp_reporte_turnos()');
+        
+        return rows[0]; 
+    },
+
     // Para el Médico: Ver sus propios turnos
     getByMedicoId: async (id_medico) => {
         const query = `
