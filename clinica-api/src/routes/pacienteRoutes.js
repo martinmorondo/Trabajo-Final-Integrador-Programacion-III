@@ -12,20 +12,15 @@ import { permitirRoles } from '../middlewares/roleMiddleware.js';
 
 const router = express.Router();
 
-// BROWSE - Obtener todos los pacientes activos
-router.get('/', getAllPacientes);
+// BROWSE y READ - SOLO Administrador (Rol 3)
+router.get('/', verificarToken, permitirRoles(3), getAllPacientes);
+router.get('/:id', verificarToken, permitirRoles(3), getPacienteById);
 
-// READ - Obtener un paciente por ID
-router.get('/:id', getPacienteById);
+// ADD y EDIT - SOLO Administrador (Rol 3)
+router.post('/', verificarToken, permitirRoles(3), createPaciente);
+router.put('/:id', verificarToken, permitirRoles(3), updatePaciente);
 
-// Cualquier usuario con token válido puede registrar o editar un paciente
-// ADD - Registrar un nuevo paciente
-router.post('/', verificarToken, createPaciente);
-
-// EDIT - Actualizar los datos de un paciente
-router.put('/:id', verificarToken, updatePaciente);
-
-// ¡SOLO el Admin puede borrar un paciente de la base de datos
+// DELETE - SOLO Administrador (Rol 3)
 router.delete('/:id', verificarToken, permitirRoles(3), deletePaciente);
 
 export default router;

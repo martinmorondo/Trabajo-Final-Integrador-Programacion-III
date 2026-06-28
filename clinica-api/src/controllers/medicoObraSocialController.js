@@ -16,11 +16,6 @@ export const asociarMedicoObraSocial = async (req, res) => {
     try {
         const { id_medico, id_obra_social } = req.body;
         
-        // Validar que manden ambos IDs
-        if (!id_medico || !id_obra_social) {
-            return res.status(400).json({ mensaje: 'El id_medico y el id_obra_social son obligatorios' });
-        }
-
         const result = await MedicoObraSocial.create({ id_medico, id_obra_social });
         
         res.status(201).json({
@@ -31,7 +26,6 @@ export const asociarMedicoObraSocial = async (req, res) => {
         res.status(500).json({ mensaje: 'Error al asociar el médico con la obra social', error: error.message });
     }
 };
-
 // DELETE - Desasociar (Borrado lógico)
 export const desasociarMedicoObraSocial = async (req, res) => {
     try {

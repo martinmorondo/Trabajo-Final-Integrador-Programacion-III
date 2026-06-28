@@ -4,7 +4,7 @@ import Turno from '../models/turnoModel.js';
 export const generarReporteTurnosPDF = async (req, res) => {
     try {
         // Traemos todos los turnos 
-        const turnos = await Turno.getAll();
+        const turnos = await Turno.getParaReporte();
 
         // Configuramos los headers para que el navegador sepa que está recibiendo un PDF
         // 'attachment' fuerza la descarga.
@@ -38,7 +38,6 @@ export const generarReporteTurnosPDF = async (req, res) => {
             doc.text(`Médico: Dr/a. ${turno.medico_nombres} ${turno.medico_apellido}`);
             doc.text(`Estado: ${estado} | Valor de consulta: $${turno.valor_total}`);
             
-            // Línea separadora
             doc.moveDown(0.5);
             doc.moveTo(50, doc.y).lineTo(550, doc.y).stroke();
             doc.moveDown(0.5);
